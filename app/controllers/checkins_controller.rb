@@ -6,7 +6,14 @@ class CheckinsController < ApplicationController
   def index
     if params[:user_sid]
       @checkins = Checkin.where(user_sid: params[:user_sid]).order('week asc')
-      @user = User.find(params[:user_sid])
+      begin
+        @user = User.find(params[:user_sid])
+      rescue ActiveRecord::RecordNotFound => e
+        puts "im here....."
+        flash[:error] = "Invalid SID"
+        redirect_to '/welcome'
+        # User.first.errors.add(e)
+      end
     else
       @checkins = Checkin.all.order('week asc')
     end
@@ -67,13 +74,23 @@ class CheckinsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_checkin
-      @checkin = Checkin.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_checkin
+    @checkin = Checkin.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def checkin_params
-      params.require(:checkin).permit(:week, :user_sid, :integer, :buddy_sid, :integer)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def checkin_params
+    params.require(:checkin).permit(:week, :user_sid, :buddy_sid)
+  end
 end
+
+
+      # @user = User.where(sid: params[:user_sid]).first
+      # if not @user
+      #   puts "im here....."
+      #   User.first.errors.add(:checkin, 'invalid SID')
+      # end
+
+
+
