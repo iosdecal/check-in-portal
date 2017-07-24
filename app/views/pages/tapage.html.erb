@@ -6,5 +6,10 @@
 <br>
 <%= link_to 'Checkins', checkins_path %>
 <br>
-<%= link_to 'Back to Welcome', welcome_path %>
+<% if Switch.first.can_checkin %>
+  <%= link_to 'Turn off checkins', switch_path %>
+<% else %>
+  <%= link_to 'Turn on checkins', switch_path %>
+<% end %>
+<br>
 

@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   root :to => 'pages#welcome'
   controller :pages do
     get :welcome
+    get :my_checkins
     get :login
     get :tapage
+  end
+  controller :switches do
+    get :switch
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

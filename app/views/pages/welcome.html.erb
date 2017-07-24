@@ -1,23 +1,4 @@
-<h1> WELCOME! </h1>
+<h3>Come back next week!</h3>
+The Checkin Period is now closed
 
-<%= link_to 'New Checkin', new_checkin_path %>
-<br>
-<br>
-<%= form_tag checkins_path, method: "get" do %>
-	<% if flash[:error] %>
-    <div id="error_explanation">
-      <h2>baddness: <%= flash[:error] %></h2>
-    </div>
-  <% end %>
-  <%= label_tag("user_sid", "Enter your SID to see your checkins") %>
-  <%= text_field_tag("user_sid") %>
-  <%= submit_tag("My Checkins") %>
-<% end %>
 
-<br>
-
-<%= link_to 'TA login', login_path %>
-<br>
-<br>
-<br>
-<a href="https://goo.gl/forms/kD7P18khVZzX8ewm1">Feedback</a>

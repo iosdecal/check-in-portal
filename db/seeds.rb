@@ -10,5 +10,5 @@ Checkin.create(week: 0, user_sid: 25573775, buddy_sid: 25573776)
 Checkin.create(week: 0, user_sid: 25573775, buddy_sid: 25573777)
 Checkin.create(week: 0, user_sid: 25573776, buddy_sid: 25573777)
 Checkin.create(week: 0, user_sid: 25573777, buddy_sid: 25573778)
-
+Switch.create()
 

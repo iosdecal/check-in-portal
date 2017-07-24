@@ -11,7 +11,7 @@ class CheckinsController < ApplicationController
       rescue ActiveRecord::RecordNotFound => e
         puts "im here....."
         flash[:error] = "Invalid SID"
-        redirect_to '/welcome'
+        redirect_to '/my_checkins'
         # User.first.errors.add(e)
       end
     else

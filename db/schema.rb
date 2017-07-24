@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170708034037) do
+ActiveRecord::Schema.define(version: 20170724000737) do
 
   create_table "checkins", force: :cascade do |t|
     t.integer "week"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 20170708034037) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["week", "user_sid", "buddy_sid"], name: "index_checkins_on_week_and_user_sid_and_buddy_sid", unique: true
+  end
+
+  create_table "switches", force: :cascade do |t|
+    t.boolean "can_checkin", default: false
   end
 
   create_table "users", primary_key: "sid", force: :cascade do |t|
