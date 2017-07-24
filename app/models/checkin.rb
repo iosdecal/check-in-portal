@@ -15,7 +15,7 @@ class Checkin < ApplicationRecord
   private
 
   def create_mirror!
-    Checkin.create(:week => week, :user_sid => buddy_sid, :buddy_sid => user_sid, :is_mirror => true) if not mirror_record
+    Checkin.create(:week => week, :user_sid => buddy_sid, :buddy_sid => user_sid, :comment => comment, :is_mirror => true) if not mirror_record
   end
 
   def destroy_mirror!
@@ -26,7 +26,7 @@ class Checkin < ApplicationRecord
     if user_sid == buddy_sid and !user_sid.nil?
       errors.add(:checkin, 'you cannot sign in with yourself!...')
     end
-    if not Checkin.where(user_sid: user_sid, buddy_sid: buddy_sid, is_mirror: false).empty?
+    if not user.is_ta? and not buddy.is_ta? and not Checkin.where(user_sid: user_sid, buddy_sid: buddy_sid, is_mirror: false).empty?
       errors.add(:checkin, 'you two have already signed in together before.')
     end
   end

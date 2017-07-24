@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724000737) do
+ActiveRecord::Schema.define(version: 20170724014113) do
 
   create_table "checkins", force: :cascade do |t|
     t.integer "week"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170724000737) do
     t.boolean "is_mirror", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "comment"
     t.index ["week", "user_sid", "buddy_sid"], name: "index_checkins_on_week_and_user_sid_and_buddy_sid", unique: true
   end
 

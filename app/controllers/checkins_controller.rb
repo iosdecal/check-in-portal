@@ -37,7 +37,6 @@ class CheckinsController < ApplicationController
   # POST /checkins.json
   def create
     @checkin = Checkin.new(checkin_params)
-
     respond_to do |format|
       if @checkin.save
         format.html { redirect_to @checkin, notice: 'Checkin was successfully created.' }
@@ -81,7 +80,7 @@ class CheckinsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def checkin_params
-    params.require(:checkin).permit(:week, :user_sid, :buddy_sid)
+    params.require(:checkin).permit(:week, :user_sid, :buddy_sid, :comment)
   end
 end
 

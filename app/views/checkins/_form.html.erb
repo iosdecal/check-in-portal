@@ -26,6 +26,11 @@
     <%= form.text_field :buddy_sid, id: :checkin_buddy_sid %>
   </div>
 
+  <div class="field">
+    <%= form.label :comment, "Weekly Question Response" %>
+    <%= form.text_area :comment, id: :checkin_comment %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
