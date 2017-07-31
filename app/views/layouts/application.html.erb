@@ -9,16 +9,16 @@
   </head>
 
   <body>
-    <h1>iOS DeCal</h1>
+    <br>
+    <br>
+    <div class="container">
+      <%= render 'layouts/header' %>
+      <br>
 
-    <%= link_to 'Home', welcome_path %>
-    <br>
-    <%= link_to 'My checkins', my_checkins_path %>
-    <br>
-    <a href="https://goo.gl/forms/kD7P18khVZzX8ewm1">Feedback</a>
-    <%= yield %>
-    <br>
-    <br>
-    <%= link_to 'TA login', login_path %>
+      <%= yield %>
+      <br>
+      <br>
+      <%= link_to 'TA login', login_path %>
+    </div>
   </body>
 </html>
